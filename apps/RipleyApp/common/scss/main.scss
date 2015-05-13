@@ -1,0 +1,40 @@
+
+@import "grid";
+@import "login";
+@import "transfer";
+@import "account";
+@import "credit_card";
+@import "tables";
+@import "products";
+
+.logo {
+	text-align: center;
+}
+
+.pull-right {
+	float: right;
+	margin-right: 10px;
+}
+
+
+
+.title {
+	text-align: center;
+}
+
+.creditButton {
+	word-wrap: break-word;
+	white-space: normal;
+}
+
+
+html, body {
+	max-width: 100% !important;
+	overflow-x: hidden !important;
+}
+
+
+
+.hidden {
+	display: none;
+}

@@ -1,0 +1,5 @@
+bin
+*.log
+*.bak
+.DS_Store
+.sass-cache

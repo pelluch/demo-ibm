@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="RipleyApp" default="sass" basedir=".">
+
+	<target name="sass">
+		<exec executable="/home/pablo/.rbenv/shims/sass">
+			<arg value="scss/main.scss" />
+			<arg value="css/main.css" />
+			<arg line="--style compressed" />
+		</exec>
+	</target>
+
+
+</project>

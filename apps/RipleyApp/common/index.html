@@ -1,0 +1,433 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ripley</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+<!--
+    			<link rel="shortcut icon" href="images/favicon.png">
+    			<link rel="apple-touch-icon" href="images/apple-touch-icon.png"> 
+    		-->
+<link href="jqueryMobile/jquery.mobile-1.4.4.css" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<script>
+	window.$ = window.jQuery = WLJQ;
+</script>
+<script src="jqueryMobile/jquery.mobile-1.4.4.js"></script>
+<script src="js/vendor/handlebars-v2.0.0.js"></script>
+
+</head>
+<body style="display: none;">
+
+
+	<div data-role="page" id="login">
+
+		<!-- Title Bar -->
+		<div data-role="header" class="ui-header ui-bar-a" role="banner">
+			<h1 class="ui-title" role="heading" aria-level="1">Login</h1>
+			<a href="#homeContextMenu" data-rel="popup"
+				class="ui-btn-right ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all 
+	                    ui-icon-bars ui-btn-icon-left">
+				&nbsp; </a>
+			<div data-role="popup" id="homeContextMenu">
+				<p>
+					<a href='#' class='login'>Login</a>
+				</p>
+			</div>
+		</div>
+
+		<div data-role="content" style="padding: 15px">
+			<div class="logo">
+				<img border="0" width="200" height="auto" id="loginImage">
+			</div>
+			<form id="login" action="">
+				<p>
+					Hola, <strong>Pablo</strong>
+				</p>
+
+				<div class="hidden rut">
+					<label for="login_email">Su Rut:</label> <input type="text"
+						name="login_email" id="login_email">
+
+				</div>
+				<label for="login_password"> Su clave:</label> <input
+					type="password" name="login_password" id="login_password">
+
+				<button type="submit" data-role="button" data-theme="d"
+					id="loginBtn" class="btn-success">Ingresar</button>
+			</form>
+			<a href="#reset_password" data-role="button" data-mini="true">Ingresar
+				con otra cuenta</a>
+		</div>
+
+		<div class="footer"></div>
+
+	</div>
+
+
+	<div data-role="page" id="products">
+
+
+		<!-- Title Bar -->
+		<div data-role="header" class="ui-header ui-bar-a" role="banner">
+			<a href="#"
+				class="ui-btn-left ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all 
+	                    ui-icon-home ui-btn-icon-left">
+				&nbsp; </a>
+			<h1 class="ui-title" role="heading" aria-level="1">Productos</h1>
+			<a href="#productsContextMenu" data-rel="popup"
+				class="ui-btn-right ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all 
+	                    ui-icon-bars ui-btn-icon-left">
+				&nbsp; </a>
+			<div data-role="popup" id="productsContextMenu">
+				<p>
+					<a href='#' class='login'>Login</a>
+				</p>
+			</div>
+		</div>
+
+		<div data-role="content" style="padding: 15px">
+			<ul data-role="listview" data-inset="true">
+				<li data-role="list-divider">Cuentas Vistas</li>
+				<li><a href="#" class="account">
+						<ul>
+							<li><p>00-004-018776-09</p></li>
+							<li><p>
+									Monto Disponible: <span class="pull-right">$250.000</span>
+								</p></li>
+						</ul>
+
+				</a></li>
+			</ul>
+			<ul data-role="listview" data-inset="true">
+				<li data-role="list-divider">Tarjetas de Crédito</li>
+				<li><a href="#" id="master_card" class="credit_card"> <img
+						border="0" src="images/master_card.png" width="100"
+						class="card-logo">
+						<p>Mastercard Platinum LANPASS</p>
+						<p>xxxx-xxxx-xxxx-12345</p>
+						<p>Disponible Compras: $100.000</p>
+						<p>Disponible Avances: $100.000</p>
+
+				</a></li>
+				<li><a href="#" id="visa" class="credit_card"> <img
+						border="0" src="images/visa.jpg" width="100" class="card-logo">
+						<p>Visa Gold</p>
+						<p>xxxx-xxxx-xxxx-12345</p>
+						<p>Disponible Compras: $100.000</p>
+						<p>Disponible Avances: $100.000</p>
+				</a></li>
+			</ul>
+		</div>
+		
+
+	</div>
+	<div data-role="page" id="credit_card">
+
+		<!-- Title Bar -->
+		<div data-role="header" class="ui-header ui-bar-a" role="banner">
+			<a href="#"
+				class="ui-btn-left ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all 
+	                    ui-icon-home ui-btn-icon-left">
+				&nbsp; </a>
+			<h1 class="ui-title" role="heading" aria-level="1">Productos</h1>
+			<a href="#creditContextMenu" data-rel="popup"
+				class="ui-btn-right ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all 
+	                    ui-icon-bars ui-btn-icon-left">
+				&nbsp; </a>
+			<div data-role="popup" id="creditContextMenu">
+				<p>
+					<a href='#' class='login'>Login</a>
+				</p>
+			</div>
+		</div>
+
+		<div data-role="content">
+			<div class="title">
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<img border="0" src="images/master_card.png" width="100"
+							class="card-logo"></img>
+					</div>
+					<div class="ui-block-b">
+						<h3>Mastercard Platinum LANPASS</h3>
+					</div>
+				</div>
+			</div>
+			<div class="credit-summary">
+
+				<table data-role="table" class="ui-responsive ui-shadow">
+					<thead>
+						<tr>
+							<th>Estado</th>
+							<th>Disponible</th>
+							<th>Utilizado</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Bloqueado</td>
+							<td>$0</td>
+							<td>$300.000</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<button>
+						<p>Movimientos</p>
+						<p>No</p>
+						<p>Facturados</p>
+					</button>
+				</div>
+
+
+				<div class="ui-block-b">
+					<button>
+						<p>Estados</p>
+						<p>de</p>
+						<p>Cuenta</p>
+					</button>
+				</div>
+			</div>
+			<button data-role="button" data-theme="d" id="transferBtn"
+				class="btn-success">Transferencia</button>
+		</div>
+	</div>
+
+	<div data-role="page" id="transfer">
+
+		<!-- Title Bar -->
+		<div data-role="header" class="ui-header ui-bar-a" role="banner">
+			<a href="#"
+				class="ui-btn-left ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all 
+	                    ui-icon-home ui-btn-icon-left">
+				&nbsp; </a>
+			<h1 class="ui-title" role="heading" aria-level="1">Transferencia</h1>
+			<a href="#transferContextMenu" data-rel="popup"
+				class="ui-btn-right ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all 
+	                    ui-icon-bars ui-btn-icon-left">
+				&nbsp; </a>
+			<div data-role="popup" id="transferContextMenu">
+				<p>
+					<a href='#' class='login'>Login</a>
+				</p>
+			</div>
+		</div>
+
+		<div data-role="content">
+
+
+
+			<div data-role="tabs" id="transferTabs">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#transfer_1" data-ajax="false"
+							class="ui-btn-active">1</a></li>
+						<li><a href="#transfer_2" data-ajax="false">2</a></li>
+						<li><a href="#transfer_3" data-ajax="false">3</a></li>
+					</ul>
+				</div>
+
+				<div id="transfer_1">
+					<h1 align="center">Seleccionar Destinatario</h1>
+					<label for="destination">Destinatario</label> <select>
+						<option selected>Andrey Lujan</option>
+						<option selected>Pablo Lluch</option>
+
+					</select>
+					<button type="button" id="newDestination">Nuevo
+						Destinatario</button>
+
+					<label for="message">Mensaje</label>
+					<textarea></textarea>
+					<button type="button" id="transferBtn2">Siguiente</button>
+
+
+				</div>
+
+				<div id="transfer_2">
+					<h1 align="center">Seleccionar Monto</h1>
+					<form>
+						<label for="ammount">Monto:</label> <input name="ammount"
+							type="number"> <label for="installments">Cuotas:</label>
+						<select name="installments">
+							<option selected>1</option>
+							<option>2</option>
+						</select>
+
+					</form>
+					<button type="button" id="transferBtn3">Siguiente</button>
+				</div>
+
+				<div id="transfer_3">
+
+					<h1 align="center">Confirmar</h1>
+
+
+					<ul data-role="listview" data-inset="true">
+						<li data-role="list-divider">Origen</li>
+						<div class="ui-grid-a">
+							<div class="ui-block-a">
+								<li>Tarjeta</li>
+								<li>Disponible</li>
+							</div>
+							<div class="ui-block-b">
+								<li>12345678</li>
+								<li>$250.000</li>
+							</div>
+						</div>
+					</ul>
+
+					<ul data-role="listview" data-inset="true">
+						<li data-role="list-divider">Destino</li>
+						<div class="ui-grid-a">
+							<div class="ui-block-a">
+								<li>Nombre</li>
+								<li>Cuenta</li>
+								<li>Banco</li>
+								<li>Tipo</li>
+							</div>
+							<div class="ui-block-b">
+								<li>Andrey Lujan</li>
+								<li>12345678</li>
+								<li>BCI</li>
+								<li>Corriente</li>
+							</div>
+						</div>
+					</ul>
+
+					<h4 align="center">Coordenadas</h4>
+					<form>
+						<div class="ui-grid-b">
+							<div class="ui-block-a">
+								<label for="c1">A1</label> <input name="c1" type="number">
+							</div>
+							<div class="ui-block-b">
+								<label for="c2">A2</label> <input name="c2" type="number">
+							</div>
+							<div class="ui-block-c">
+								<label for="c3">A3</label> <input name="c3" type="number">
+							</div>
+						</div>
+
+						<label for="destinationEmail" align="left">Correo de
+							Confirmacion</label> <input name="destinationEmail" type="text">
+
+						<button type="submit" id="confirmTransfer">Confirmar</button>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="account">
+		<!-- Title Bar -->
+		<div data-role="header" class="ui-header ui-bar-a" role="banner">
+			<a href="#"
+				class="ui-btn-left ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all 
+	                    ui-icon-home ui-btn-icon-left">
+				&nbsp; </a>
+			<h1 class="ui-title" role="heading" aria-level="1">Cuenta
+				Corriente</h1>
+			<a href="#accountContextMenu" data-rel="popup"
+				class="ui-btn-right ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all 
+	                    ui-icon-bars ui-btn-icon-left">
+				&nbsp; </a>
+			<div data-role="popup" id="accountContextMenu">
+				<p>
+					<a href='#' class='login'>Login</a>
+				</p>
+			</div>
+		</div>
+
+		<div data-role="content">
+			<h1 align="center">Cuenta Corriente 00-005-01598-09</h1>
+
+			<table data-role="table" class="ui-responsive ui-shadow"
+				id="accountSummary">
+				<thead>
+					<tr>
+						<th>Contable</th>
+						<th>Retenciones</th>
+						<th>Disponible</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>$250.000</td>
+						<td>$0</td>
+						<td>$300.000</td>
+					</tr>
+				</tbody>
+			</table>
+
+
+			<h4>Ultimos Movimientos</h4>
+			<table data-role="table" class="ui-responsive ui-shadow"
+				id="lastMovements">
+				<thead>
+					<tr>
+						<th>Fecha</th>
+						<th>Cantidad</th>
+						<th>Nombre</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>16 septiembre</td>
+						<td>$0</td>
+						<td>Lider</td>
+					</tr>
+					<tr>
+						<td>16 septiembre</td>
+						<td>$0</td>
+						<td>Traspaso</td>
+					</tr>
+					<tr>
+						<td>15 septiembre</td>
+						<td>$0</td>
+						<td>Farmacia</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div data-role="page" id="new_destination">
+		<div class="header" data-title="Nuevo Destinatario"></div>
+		<div data-role="content" style="padding: 15px">
+			<form id="login0" action="">
+				<label for="destination_name">Nombre: </label> <input type="text"
+					name="destination_name" id="destination_name"> <label
+					for="destination_email">E-mail: </label> <input type="email"
+					name="destination_email" id="destination_email"> <label
+					for="destination_account_number">Numero de cuenta: </label> <input
+					type="number" name="destination_account_number"
+					id="destination_account_number"> <label
+					for="destination_bank">Banco: </label> <input type="text"
+					name="destination_bank" id="destination_bank"> <label
+					for="destination_account_type">Tipo de cuenta: </label> <input
+					type="text" name="destination_account_type"
+					id="destination_account_type">
+
+				<button type="submit" data-role="button" data-theme="b">Agregar</button>
+			</form>
+		</div>
+	</div>
+
+
+
+
+	<script src="js/initOptions.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/login.js"></script>
+	<script src="js/products.js"></script>
+	<script src="js/transfer.js"></script>
+	<script src="js/messages.js"></script>
+
+</body>
+</html>
